@@ -2,4 +2,4 @@
 
 set -e
 
-docker compose up -d backend
+docker compose up -d
