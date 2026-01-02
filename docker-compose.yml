@@ -6,6 +6,16 @@ services:
     networks:
       - bank-network
 
+  tests:
+    image: bank-tests:latest
+    depends_on:
+      - backend
+    environment:
+      BACKEND_URL: http://backend:4111/api
+    networks:
+      - bank-network
+    command: pytest -m api --alluredir=/app/reports/allure
+
 networks:
   bank-network:
     driver: bridge
