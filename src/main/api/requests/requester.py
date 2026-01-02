@@ -8,6 +8,6 @@ class Requester(ABC):
         self.headers = request_spec["headers"]
         self.base_url = request_spec["base_url"]
         self.response_spec = response_spec
-
+#
     @abstractmethod
     def post(self, model: BaseModel): ...
