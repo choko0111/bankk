@@ -21,7 +21,7 @@ class Config:
                         cls._dictionary[key] = value
 
         return cls._isinstance
-
+#29
     @staticmethod
     def fetch(key: str, default_value: Any = None) -> Any:
         return Config()._dictionary.get(key, default_value)
