@@ -9,7 +9,7 @@ services:
   tests:
     build: .
     networks:
-      - bank-networke
+      - bank-network
 
 networks:
   bank-network:
