@@ -5,9 +5,10 @@ IMAGE_NAME=bank-tests
 echo ">>> Сборка Docker-образа: $IMAGE_NAME"
 docker build -t $IMAGE_NAME .
 
-echo ">>> Запуск тестов"
-docker network create bank-network
+COMPOSE_NETWORK=test-bank_bank-network
+
+echo ">>> Запуск тестов в сети: $COMPOSE_NETWORK"
 docker run --rm \
-  --network bank-network \
+  --network $COMPOSE_NETWORK \
   -e BACKEND_URL=http://backend:4111/api \
-  bank-tests
+  $IMAGE_NAME
