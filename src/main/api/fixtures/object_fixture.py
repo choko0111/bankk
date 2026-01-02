@@ -10,7 +10,7 @@ def created_obj():
     objects: List[Any] = []
     yield objects
     clean_user(objects)
-#223x
+#223xq
 def clean_user(objects: List[Any]):
     api_manager = ApiManager(objects)
     for u in objects:
