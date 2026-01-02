@@ -1,6 +1,7 @@
 services:
   backend:
     image: clausmerderet/bank_api:latest
+    platform: linux/amd64
     ports:
       - "4111:4111"
 
