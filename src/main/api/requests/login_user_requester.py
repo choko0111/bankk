@@ -14,3 +14,4 @@ class LoginUserRequester(Requester):
         )
         self.response_spec(response)
         return LoginUserResponse(**response.json())
+    #09
