@@ -3,9 +3,11 @@ services:
     image: clausmerderet/bank_api:latest
     ports:
       - "4111:4111"
-#    networks:
-#      - bank-network
-#
-#networks:
-#  bank-network:
-#    driver: bridge
+
+  tests:
+    build: .
+    depends_on:
+      - backend
+    environment:
+      BACKEND_URL: http://backend:4111/api
+    command: pytest -m api --alluredir=/app/reports/allure

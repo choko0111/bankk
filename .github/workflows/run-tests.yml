@@ -14,8 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Start app
-        run: make start-app
+      - name: Run Tests
+        run: docker compose up --build --abort-on-container-exit
 
-      - name: Run tests
-        run: make run-tests
