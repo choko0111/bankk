@@ -1,6 +1,5 @@
-from http import HTTPStatus
 from requests import Response
-
+from http import HTTPStatus
 
 
 class ResponseSpecs:
@@ -20,16 +19,4 @@ class ResponseSpecs:
     def request_bad():
         def confirm(response: Response):
             assert response.status_code == HTTPStatus.BAD_REQUEST, response.text
-        return confirm
-
-    @staticmethod
-    def request_conflict():
-        def confirm(response: Response):
-            assert response.status_code == HTTPStatus.CONFLICT, response.text
-        return confirm
-
-    @staticmethod
-    def request_expected_status(expected_status):
-        def confirm(response: Response):
-            assert response.status_code == expected_status, response.text
         return confirm
