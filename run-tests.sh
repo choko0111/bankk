@@ -9,6 +9,7 @@ COMPOSE_NETWORK=test-bank_bank-network
 
 echo ">>> Запуск тестов в сети: $COMPOSE_NETWORK"
 docker run --rm \
-  --network $COMPOSE_NETWORK \
-  -e BACKEND_URL=http://backend:4111/api \
-  $IMAGE_NAME
+  --network bank-network \
+  bash -c "\
+    pytest --junitxml=/app/reports/raw/results.xml --tb=short \
+  "
