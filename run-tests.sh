@@ -5,7 +5,7 @@ IMAGE_NAME=bank-tests
 echo ">>> Сборка Docker-образа: $IMAGE_NAME"
 docker build -t $IMAGE_NAME .
 
-COMPOSE_NETWORK=test-bank_bank-network
+COMPOSE_NETWORK=bank_net
 
 echo ">>> Запуск тестов в сети: $COMPOSE_NETWORK"
 docker run --rm \

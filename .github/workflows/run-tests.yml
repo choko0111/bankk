@@ -16,4 +16,3 @@ jobs:
 
       - name: Run Tests
         run: docker compose up --build
-
