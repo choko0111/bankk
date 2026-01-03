@@ -6,4 +6,4 @@ class CreateUserResponse(BaseModel):
     username: str
     password: str
     role: str
-    #3
+    #3ув
