@@ -8,7 +8,7 @@ class ResponseSpecs:
         def confirm(response: Response):
             assert response.status_code == HTTPStatus.OK, response.text
         return confirm
-
+#1
     @staticmethod
     def request_created():
         def confirm(response: Response):
