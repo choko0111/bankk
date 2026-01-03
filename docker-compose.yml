@@ -8,4 +8,4 @@ services:
 
 networks:
   bank-network:
-    driver: bridge
+    name: bank-network

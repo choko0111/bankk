@@ -11,7 +11,7 @@ class RequestSpecs:
             "Content-Type": "application/json",
             "accept": "application/json",
         }
-
+#
     @staticmethod
     def auth_headers(username: str, password: str):
         request = LoginUserRequest(username=username, password=password)
@@ -27,6 +27,7 @@ class RequestSpecs:
             headers["Authorization"] = f"Bearer {token}"
             return headers
         raise Exception("Failed to login")
+    # 696
 
     @staticmethod
     def unauth_headers():

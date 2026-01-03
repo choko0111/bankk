@@ -4,7 +4,7 @@ from typing import Any
 class Config:
     _isinstance = None
     _dictionary = {}
-
+#11
     def __new__(cls):
         if cls._isinstance is None:
             cls._isinstance = super(Config, cls).__new__(cls)
@@ -21,7 +21,7 @@ class Config:
                         cls._dictionary[key] = value
 
         return cls._isinstance
-
+#29
     @staticmethod
     def fetch(key: str, default_value: Any = None) -> Any:
         return Config()._dictionary.get(key, default_value)
