@@ -11,7 +11,7 @@ class RequestSpecs:
             "Content-Type": "application/json",
             "accept": "application/json",
         }
-
+#
     @staticmethod
     def auth_headers(username: str, password: str):
         request = LoginUserRequest(username=username, password=password)
