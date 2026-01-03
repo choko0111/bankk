@@ -2,7 +2,7 @@ services:
   backend:
     image: clausmerderet/bank_api:latest
     ports:
-      - "4111:4111"
+      - "80:80"
     networks:
       - bank-network
 
