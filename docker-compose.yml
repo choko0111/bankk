@@ -5,7 +5,22 @@ services:
       - "4111:4111"
     networks:
       - bank-network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "4111"]
+      interval: 2s
+      retries: 15
+      start_period: 2s
 
-networks:
-  bank-network:
-    name: bank-network
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - bank-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      - BACKEND_URL=http://backend:4111
+    command: >
+      pytest --junitxml=/app/reports/raw/results.xml --tb=short

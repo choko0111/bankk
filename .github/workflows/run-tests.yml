@@ -24,11 +24,11 @@ jobs:
         #        run: playwright install --with-deps
 
         - name: Run app
-          run: make start-app&
+          run: docker compose up
 
-        - name: Run tests
-          #        env:
-          #          SERVER: http://localhost:4111/api
-          #          API_VERSION: /v1
-          #          UI_BASE_URL: http://localhost:3000
-          run: make run-tests
+#        - name: Run tests
+#          #        env:
+#          #          SERVER: http://localhost:4111/api
+#          #          API_VERSION: /v1
+#          #          UI_BASE_URL: http://localhost:3000
+#          run: make run-tests
