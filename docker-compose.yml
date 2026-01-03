@@ -3,7 +3,6 @@ version: "3.9"
 services:
   backend:
     image: clausmerderet/bank_api:latest
-    container_name: backend
     ports:
       - "4111:4111"
     networks:
@@ -11,7 +10,6 @@ services:
 
   tests:
     build: .
-    container_name: tests
     depends_on:
       - backend
     environment:
