@@ -2,7 +2,7 @@ from src.main.api.models.create_account_response import CreateAccountResponse
 from src.main.api.requests.requester import Requester
 import requests
 
-# check newc33
+# check newc333
 class CreateAccountRequester(Requester):
     def post(self, model=None) -> CreateAccountResponse:
         url=f"{self.base_url}/account/create"
