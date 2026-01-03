@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   backend:
     image: clausmerderet/bank_api:latest
@@ -7,6 +9,20 @@ services:
     networks:
       - test-net
 
+  tests:
+    build:
+      context: .        # Текущая папка проекта
+      dockerfile: Dockerfile  # Можно опустить, если файл называется Dockerfile
+    container_name: api_tests
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=http://backend:4111
+    networks:
+      - test-net
+    command: ["pytest", "--maxfail=1", "--disable-warnings", "-q"]
+
+
 networks:
   test-net:
-    external: true
+    driver: bridge
