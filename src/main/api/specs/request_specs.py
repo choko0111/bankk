@@ -27,6 +27,7 @@ class RequestSpecs:
             headers["Authorization"] = f"Bearer {token}"
             return headers
         raise Exception("Failed to login")
+    # 696
 
     @staticmethod
     def unauth_headers():
