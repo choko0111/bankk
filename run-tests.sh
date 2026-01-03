@@ -8,7 +8,7 @@ docker build -t $IMAGE_NAME .
 COMPOSE_NETWORK=bank_net
 
 echo ">>> Запуск тестов в сети: $COMPOSE_NETWORK"
-docker run --rm \
-  --network $COMPOSE_NETWORK \
-  -e BACKEND_URL=http://backend:4111/api \
+
+docker run --rm --network test-net \
+  -e BACKEND_URL=http://bank_api:4111 \
   $IMAGE_NAME

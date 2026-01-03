@@ -14,5 +14,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: New Network
+        run: docker network create test-net || true
+
+      - name: App Service
+        run: docker-compose up -d backend
+
       - name: Run Tests
-        run: docker compose up --build
+        run: make run-tests

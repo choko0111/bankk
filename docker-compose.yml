@@ -1,23 +1,12 @@
-version: "3.9"
-
 services:
   backend:
     image: clausmerderet/bank_api:latest
+    container_name: bank_api
     ports:
       - "4111:4111"
     networks:
-      - bank_net
-
-  tests:
-    build: .
-    depends_on:
-      - backend
-    environment:
-      BACKEND_URL: http://backend:4111/api
-    command: pytest -m api --alluredir=/app/reports/allure
-    networks:
-      - bank_net
+      - test-net
 
 networks:
-  bank_net:
-    driver: bridge
+  test-net:
+    external: true
