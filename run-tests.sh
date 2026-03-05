@@ -1,9 +1,6 @@
 #!/bin/bash
 
-IMAGE_NAME=bank-tests
+set -e
 
-echo ">>> Сборка Docker-образа: $IMAGE_NAME"
-docker build -t $IMAGE_NAME
-
-echo ">>> Запуск тестов"
-docker run --rm $IMAGE_NAME
+echo ">>> Сборка и запуск тестов"
+docker compose up --build --exit-code-from tests tests

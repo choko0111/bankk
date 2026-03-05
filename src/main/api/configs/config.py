@@ -1,5 +1,10 @@
+import os
 from pathlib import Path
 from typing import Any
+
+ENV_OVERRIDES = {
+    "backendUrl": "BACKEND_URL",
+}
 
 class Config:
     _isinstance = None
@@ -17,11 +22,16 @@ class Config:
             with open(config_path, "r") as f:
                 for line in f:
                     if "=" in line:
-                        key, value = line.split("=")
+                        key, value = line.strip().split("=", 1)
                         cls._dictionary[key] = value
 
         return cls._isinstance
 
     @staticmethod
     def fetch(key: str, default_value: Any = None) -> Any:
+        env_key = ENV_OVERRIDES.get(key)
+        if env_key:
+            env_val = os.environ.get(env_key)
+            if env_val:
+                return env_val
         return Config()._dictionary.get(key, default_value)

@@ -6,6 +6,17 @@ services:
     networks:
       - bank-network
 
+  tests:
+    build: .
+    environment:
+      - BACKEND_URL=http://backend:4111/api
+    depends_on:
+      - backend
+    networks:
+      - bank-network
+    volumes:
+      - ./reports/allure:/app/reports/allure
+
 networks:
   bank-network:
     driver: bridge
