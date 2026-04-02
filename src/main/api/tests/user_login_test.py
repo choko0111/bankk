@@ -1,6 +1,6 @@
 import pytest
 from src.main.api.models.login_user_request import LoginUserRequest
-
+from abc import abstractmethod   # Правильно!
 
 @pytest.mark.api
 class TestUserLogin:
