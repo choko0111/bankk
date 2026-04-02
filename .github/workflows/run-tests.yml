@@ -14,11 +14,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Start app
-        run: make start-app
-
       - name: Run tests
-        run: make run-tests
+        run: docker compose up --build --exit-code-from tests
 
       - name: Upload allure results
         if: always()
