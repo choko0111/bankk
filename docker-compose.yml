@@ -1,11 +1,23 @@
 services:
   backend:
     image: clausmerderet/bank_api:latest
+    platform: linux/amd64
     ports:
       - "4111:4111"
     networks:
       - bank-network
 
+  tests:
+    build: .
+    environment:
+      - BACKEND_URL=http://backend:4111/api
+    depends_on:
+      - backend
+    networks:
+      - bank-network
+    volumes:
+      - ./reports/allure:/app/reports/allure
+
 networks:
   bank-network:
-    name: bank-network
+    driver: bridge
